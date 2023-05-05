@@ -8,8 +8,26 @@ module my_chip (
 );
     
     // Basic counter design as an example
+    /*
+        module top_cpu(
+            sys_clk,
+            sys_reset,
+            instr_in,
+            m_instr_in,
+            inst_addr_stream, 
+            m_inst_addr_stream
 
+        );
+    */
 
+    top_cpu micro_coded_cpu(.sys_clk(clock), 
+                        .sys_reset(reset),
+                        .instr_in(io_in[0]),
+                        .m_instr_in(io_in[1]),
+                        .inst_addr_stream(io_out[0]),
+                        .m_inst_addr_stream(io_out[1])
+                        );
+    /*
     wire [6:0] led_out;
     assign io_out[6:0] = led_out;
 
@@ -43,5 +61,5 @@ module my_chip (
 
     // instantiate segment display
     seg7 seg7(.counter(digit), .segments(led_out));
-
+    */
 endmodule
