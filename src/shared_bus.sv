@@ -40,6 +40,9 @@ module reg_src_dst_cmp(
             else if(reg_dst == `IS_IMM_MAP) begin
                 reg_dst_content = {7'b0, is_imm_active};
             end
+            else begin
+                reg_dst_content = 8'b0;
+            end
         end
 
     assign should_branch = (reg_dst_content == imm) ? 1'b1 : 1'b0;
